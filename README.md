@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# Admissions Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Useful links
+Client side (deployed): https://school-admission-project.herokuapp.com/
 
-## Available Scripts
+Server side (deployed): https://admission-manage-backend.herokuapp.com/
 
-In the project directory, you can run:
+Server side (github repo): https://github.com/Michael-Murage/admissions-project-backend
 
-### `npm start`
+Relations table: https://drawsql.app/teams/admissions/diagrams/admissions-table
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Description
+This is a basic version of a student's manangement system. This means it is an app to do some basic CRUD and storage functionalities mainly for students. The application's frontend is done using React and its server side done using Sinatra (and Ruby).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## What works?
+A user can:
+> View students, instructors, courses tables
 
-### `npm test`
+> Sign up as a new student
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+An admin can:
+> Do all the things a user can do
 
-### `npm run build`
+> Edit a student's information
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+> Delete a student's information
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## What doesn't work?
+> User authentication
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ ## Installation
+Ensure you have npm installed on your computer.
 
-### `npm run eject`
+ > Fork this repository and clone it to your computer.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+ > In the folder where you've cloned it, cd into the cloned project
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+ > If your terminal wasn't open before this, open it and run the commands below:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+ ```
+    npm install
+    npm start
+ ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+ This process will enable you to have your the project in your local environment but the link above (deployed link) should function similarly to running npm start.
 
-## Learn More
+ This process will enable you to have your the project in your local environment but the link(s) above (deployed link) should run automatically without any installations.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Future implementations
+> A user should be able to visit the app but be able to only see his/her own information. This towers on user authentication.
