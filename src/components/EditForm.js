@@ -17,7 +17,7 @@ function EditForm() {
   })
   const navigate = useNavigate()
   useEffect(()=>{
-    fetch(`https://localhost:9292/students/${id}`)
+    fetch(`http://localhost:9292/students/${id}`)
     .then(res => res.json())
     .then(items=> setData(items))
     .catch(err => console.log(err)
@@ -33,7 +33,7 @@ function EditForm() {
 
   const handleSubmit =(e)=>{
     e.preventDefault()
-    fetch(`https://localhost:9292/students/${id}`,{
+    fetch(`http://localhost:9292/students/${id}`,{
       method: "PATCH",
       headers: {
         "Content-Type": "application/json"
@@ -67,7 +67,7 @@ function EditForm() {
     navigate('/studentsedit')
   }
   const deleteData = (e) => {
-    fetch(`https://localhost:9292/students/${id}`, {
+    fetch(`http://localhost:9292/students/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'

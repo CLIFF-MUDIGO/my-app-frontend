@@ -1,0 +1,51 @@
+.whiteboard.landing {
+    background-repeat: no-repeat;
+    background-image: url('../assets/bg-signup.jpg');
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  #icon {
+    margin-bottom: 20px;
+  }
+  
+  #morre {
+    font-size: 48px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  #big-o {
+    color: #f00;
+  }
+  
+  #yourself {
+    font-size: 36px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .land {
+    font-size: 18px;
+    color: #fff;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  
+  .arrow {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .arrow:hover {
+    text-decoration: underline;
+  }
+  

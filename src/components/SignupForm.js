@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import EditForm from './EditForm';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function SignupForm() {
   const [data, setData] = useState({
@@ -9,7 +9,22 @@ function SignupForm() {
     gender: ''
   });
 
-  const [showEditForm, setShowEditForm] = useState(false);
+  const [students, setStudents] = useState([]);
+
+  useEffect(() => {
+    fetchStudents();
+  }, []);
+
+  const navigate = useNavigate();
+
+  const fetchStudents = () => {
+    fetch("https://localhost:9292/students")
+      .then(resp => resp.json())
+      .then(updatedStudents => {
+        setStudents(updatedStudents);
+      })
+      .catch(err => console.log(err));
+  };
 
   const handleChange = (e) => {
     setData({
@@ -21,17 +36,33 @@ function SignupForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Submit the signup form logic here...
+    const postData = {
+      name: data.name,
+      age: data.age,
+      id_number: data.id_number,
+      gender: data.gender,
+      status: "pending"
+    };
 
-    // Set showEditForm to true to display the EditForm
-    setShowEditForm(true);
-
-    setData({
-      name: '',
-      age: '',
-      id_number: '',
-      gender: ''
-    });
+    fetch("http://localhost:9292/students", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(postData)
+    })
+      .then(resp => resp.json())
+      .then((createdStudent) => {
+        fetchStudents();
+        setData({
+          name: '',
+          age: '',
+          id_number: '',
+          gender: ''
+        });
+        navigate(`/edit/${createdStudent.id}`);
+      })
+      .catch(err => console.log(err));
   };
 
   return (
@@ -39,37 +70,37 @@ function SignupForm() {
       <div className="container py-5 h-100">
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col-12 col-md-8 col-lg-6 col-xl-5">
-            <div className="card bg-dark text-white" style={{borderRadius: "1rem"}}>
-              <div className="card-body p-5 text-center">
-                <div className="mb-md-5 mt-md-4 pb-5">
-                  <h2 className="fw-bold mb-2 text-uppercase">Pre-Admission</h2>
-                  <p className="text-white-50 mb-5">Please enter your details accordingly...</p>
-                  <div className="form-outline form-white mb-4">
-                    <input type="text" id="name" value={data.name} onChange={handleChange} className="form-control form-control-lg" />
-                    <label className="form-label" htmlFor="name">Your name</label>
-                  </div>
-                  <div className="form-outline form-white mb-4">
-                    <input type="number" id="age" value={data.age} onChange={handleChange} className="form-control form-control-lg" />
-                    <label className="form-label" htmlFor="age">Age</label>
-                  </div>
-                  <div className="form-outline form-white mb-4">
-                    <input type="number" id="id_number" value={data.id_number} onChange={handleChange} className="form-control form-control-lg" />
-                    <label className="form-label" htmlFor="id_number">ID number</label>
-                  </div>
-                  <div className="form-outline form-white mb-4">
-                    <input type="text" id="gender" value={data.gender} onChange={handleChange} className="form-control form-control-lg" />
-                    <label className="form-label" htmlFor="gender">Gender e.g Male, Female</label>
-                  </div>
-                  <button className="btn btn-outline-light btn-lg px-5" type="submit">Submit</button>
+            <div className="card">
+              <div className="card-body">
+                <h2 className="fw-bold mb-2 text-uppercase">Pre-Admission</h2>
+                <p className="mb-5">Please enter your details accordingly...</p>
+
+                <div className="form-group">
+                  <label htmlFor="name">Your name</label>
+                  <input type="text" id="name" value={data.name} onChange={handleChange} className="form-control" />
                 </div>
+
+                <div className="form-group">
+                  <label htmlFor="age">Age</label>
+                  <input type="number" id="age" value={data.age} onChange={handleChange} className="form-control" />
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="id_number">ID number</label>
+                  <input type="number" id="id_number" value={data.id_number} onChange={handleChange} className="form-control" />
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="gender">Gender e.g Male, Female</label>
+                  <input type="text" id="gender" value={data.gender} onChange={handleChange} className="form-control" />
+                </div>
+
+                <button className="btn btn-primary" type="submit">Submit</button>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Render the EditForm if showEditForm is true */}
-      {showEditForm && <EditForm />}
     </form>
   );
 }
