@@ -1,7 +1,5 @@
 # Admissions Project
 
-## Useful links
-
 ## Description
 This is a basic version of a student's manangement system. This means it is an app to do some basic CRUD and storage functionalities mainly for students. The application's frontend is done using React and its server side done using Sinatra (and Ruby).
 
