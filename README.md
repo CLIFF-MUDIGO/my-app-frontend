@@ -37,5 +37,18 @@ Ensure you have npm installed on your computer.
 
  This process will enable you to have your the project in your local environment but the link(s) above (deployed link) should run automatically without any installations.
 
+
+ ## DEPENDECIES
+ -react.js
+ -hooks
+ -react-router-dom
+ -react-bootstrap
+ 
+ ## LIVE LINK
+ https://my-app-frontend-woad.vercel.app/
+
+
+ ## SCREENSHOTS
+ https://github.com/CLIFF-MUDIGO/my-app-frontend/issues/1
 ## Future implementations
 > A user should be able to visit the app but be able to only see his/her own information. This towers on user authentication.
